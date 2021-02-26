@@ -1,6 +1,6 @@
 public class IntSet {
 	private int[] universalSet=new int[1000];
-	public  int[] setOfNumber={0};
+	public final int[] setOfNumber;
 	public IntSet(int[] newset){
 		this.setOfNumber=newset;
 		for(int index=0;index<1000;++index){

@@ -81,4 +81,38 @@ public class FCFS {
 		}
 		return completionTime;
 	}
+	private static float sumOfTime(int[] proccesstime){
+		float sum=0;
+		for(int time : proccesstime){
+			sum+=time;
+		}
+		return sum;
+	}
+	/**
+	 * 
+	 * @return average of waiting time 
+	 */
+	public static float avgWaitingTime(){
+		return sumOfTime(waitingTime)/waitingTime.length;
+	}
+	/**
+	 * 
+	 * @return average of turn around time
+	 */
+	public static float avgTurnAroundTime(){
+		return sumOfTime(turnAroundTime)/turnAroundTime.length;
+	}
+	/**
+	 * 
+	 * @return maximum waiting time of process
+	 */
+	public static int maxWaitingTime(){
+		int max=0;
+		for (int time : waitingTime){
+			if(max<time){
+				max=time;
+			}
+		}
+		return max;
+	}
 }

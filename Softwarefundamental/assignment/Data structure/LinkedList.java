@@ -5,15 +5,32 @@ So, our new linked list is 2->5->6->3->4->7.
 As an output display the modified linked list.*/
 
 public class LinkedList {
-	Node head;
-	static class Node{
+	Node head;							// |    |    |
+	NodePoly Polyhead;					// |Data|next|
+	static class Node{					// |    |    |
 		int data;
 		Node next;
 		Node(int data){
 			this.data=data;
 			next=null;
 		}
+		
 	}
+	static class NodePoly{								// -----------------------------
+		int coefficient;								// |           |               |
+		NodePoly nextCoefficient;						// |coefficient|nextcoefficient|
+		NodePoly coefficientpower_list;					// |           |			   |
+		NodePoly(int coefficient){						// |----------------------------
+			this.coefficient=coefficient;				// |coefficient power list     |
+			nextCoefficient=null;						// -----------------------------
+			coefficientpower_list=null;
+		}
+	} 
+	/**
+	 * 
+	 * @param data integer data to be inserted in list
+	 * @return return list with inserted data
+	 */
 	public  LinkedList insert(int data){
 		Node new_node= new Node(data);
 		new_node.next=null;
@@ -29,7 +46,94 @@ public class LinkedList {
 		}
 		return this;
 	}
-	
+	/**
+	 * 
+	 * @param coefficient of polynomial
+	 * @param powerOfvariable variable powers to corresponding coefficient in x,y,z... form 
+	 * @return  list having coefficient with nested list having respective powers to coefficient  
+	 */
+	public LinkedList insertPoly(int coefficient,int... powerOfvariable){
+		NodePoly new_node_poly=new NodePoly(coefficient);
+		new_node_poly.nextCoefficient=null;
+		new_node_poly.coefficientpower_list=null;
+		NodePoly new_node_power=new NodePoly(powerOfvariable[0]);
+		System.out.println("Power "+new_node_power.coefficient);
+		new_node_power.coefficientpower_list=null;
+		if(this.Polyhead==null){
+			this.Polyhead=new_node_poly;
+			if(powerOfvariable.length>0){
+				new_node_poly.coefficientpower_list=new_node_power;
+				for(int i=1 ; i<powerOfvariable.length;i++){
+					if (powerOfvariable[i]!=0){
+						NodePoly node_power=new NodePoly(powerOfvariable[i]);
+						node_power.coefficientpower_list=null;
+						new_node_power.coefficientpower_list=node_power;
+						new_node_power=new_node_power.coefficientpower_list;
+						}
+					}
+			}
+		}else{
+		if(powerOfvariable.length>0){
+			NodePoly traverse=this.Polyhead;
+			while(traverse.nextCoefficient!=null){
+				traverse=traverse.nextCoefficient;
+			}
+			traverse.nextCoefficient=new_node_poly;
+			new_node_poly.coefficientpower_list=new_node_power;
+			for(int i=1 ; i<powerOfvariable.length;i++){
+				if (powerOfvariable[i]!=0){
+					NodePoly node_power=new NodePoly(powerOfvariable[i]);
+					node_power.coefficientpower_list=null;
+					new_node_power.coefficientpower_list=node_power;
+					new_node_power=new_node_power.coefficientpower_list;
+					}
+				}
+			}
+		}
+		return this;
+	}
+	/**
+	 * 
+	 * @param list linked list
+	 * @return highest degree of polynomial like 3x^2y^3 --> x's power 2 + y's power 3= 5
+	 */
+	public int degreeofPoly(LinkedList list){
+		NodePoly temp_power=list.Polyhead.coefficientpower_list;
+		NodePoly temp_coeff=list.Polyhead;
+		int degree=0;
+		while(temp_coeff!=null){
+			int sumOfdegree=0;
+			while(temp_power!=null){
+				sumOfdegree+=temp_power.coefficient;
+			temp_power=temp_power.coefficientpower_list;
+		}
+			temp_coeff=temp_coeff.nextCoefficient;
+			if(temp_coeff!=null)temp_power=temp_coeff.coefficientpower_list;
+			if(sumOfdegree>degree) degree=sumOfdegree;
+		}
+		return degree;
+	}
+	/**
+	 * 
+	 * @param list polynomial linked list to display 
+	 */
+	public void printPolyList(LinkedList list){
+		NodePoly temp_power=list.Polyhead.coefficientpower_list;
+		NodePoly temp_coeff=list.Polyhead;
+		while(temp_coeff!=null){
+			System.out.println("coefficient->"+temp_coeff.coefficient+"");
+			while(temp_power!=null){
+			System.out.println("power->"+temp_power.coefficient);
+			temp_power=temp_power.coefficientpower_list;
+		}
+			temp_coeff=temp_coeff.nextCoefficient;
+			if(temp_coeff!=null)temp_power=temp_coeff.coefficientpower_list;
+		}
+	}
+	/**
+	 * 
+	 * @param list linked list to display 
+	 */
 	public void printList(LinkedList list){
 		Node temp=list.head;
 		System.out.println("Linked List: ");
@@ -38,7 +142,15 @@ public class LinkedList {
 			temp=temp.next;
 		}
 	}
-	
+	/**
+	 * 
+	 * @param Left left element of list to rotate from
+	 * @param Right element of list to rotate to
+	 * @param noOfTimes rotate list sublist(left,right) in clockwise and noOfTime < length of sublist
+	 * @return list rotated from given left to right remaining other element as it is.
+	 * 2->3->4->5->6->7 and L=2, R=5 and N=2
+	 * new linked list is 2->5->6->3->4->7.
+	 */
 	public LinkedList rotateList(int Left , int Right,int noOfTimes){
 		LinkedList sublist = new LinkedList();
 		Node temp = this.head;
@@ -109,13 +221,4 @@ public class LinkedList {
 		return loop;
 	}
 	
-	/*public int findDegree(LinkedList list_x,LinkedList list_y){
-		Node list1_head=list_x.head;
-		Node list2_head=list_y.head;
-		while(list1_head!=null){
-			while(list2_head!=null){
-				//if(list1_head.data!=0 && list)
-			}
-		}
-	}*/
 }

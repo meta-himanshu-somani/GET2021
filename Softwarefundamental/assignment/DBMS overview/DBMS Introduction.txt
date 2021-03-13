@@ -1,0 +1,57 @@
+Assignment-1
+1.Identify the participating entities.
+Answer: Product,Shopper,Order,Categories
+
+2.Identify the relations. 
+Answer: product has categories
+	one shopper has a one or more product to buy
+	one shopper has order
+
+3.Identify the key attributes.
+Answer: ProductID,ShopperID,OrderID
+ 
+4.Draw the E-R diagram for the problem.
+Answer: 
+
+Assignment-2
+Q.Explain Normalization techniques (along with an example) as discussed during Session.
+Answer:It is technique to make data more understandble and make each entry in uniqe form.It solve the problem occurs in Realtime database 
+	tables like same value is repeated,entering uniqe value or deletion of data with name will delete other same data also.
+	To solve such problem there are diffrent forms of Normalization.
+For Example: StudentTable
+	ID	Name	Age	CourseID	Subject		Teacher
+	1	Akshay	20	1		Maths		Ramesh
+						Physics		Kishan
+						Chemestry	Anjali
+	2	Anisha	20	1		Maths		Ramesh
+						Physics		Kishan
+						Chemestry	Anjali
+------>Data in coulmn Subject has multiple entry it should be removed by changing it to 1NF form
+1NF of Student Table:
+	ID	Name	Age	CourseID	Subject		Teacher
+	1	Akshay	20	1		Maths		Ramesh
+	1	Akshay	20	1		Physics		Kishan
+	1	Akshay	20	1		Chemestry	Anjali
+	2	Anisha	20	1		Maths		Ramesh
+	2	Anisha	20	1		Physics		Kishan
+	2	Anisha	20	1		Chemestry	Anjali
+------>Table has repeated elements it shold be reoved by changing it to 2NF and to convert into 2NF table must be in 1NF
+	Here transitivity is between ID->CourseID and CourseID->Subject 
+2NF of Student table:
+	StudentID	Name	Age	CourseID
+	1		Akshay	20	1
+	2		Anisha	20	1
+------> A new table will create to reduce repeated data
+Subject table:
+	CourseID	Subject		Teacher
+	1		Maths		Ramesh
+	1		Chemestry	Anjali
+	1		Physics		Kishan
+3NF ---> It must be in 2nf and partial dependecy should not present
+BCNF----> In this left side of any relation must only the super key and there should not present any primary key at right side.
+For Example: A_-->BC_DE (A is super key)
+	     
+	Convert to BCNF:
+		A_-->B
+		C_-->DE
+		A_-->C

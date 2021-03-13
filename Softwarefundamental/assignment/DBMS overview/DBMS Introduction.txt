@@ -11,7 +11,7 @@ Answer: product has categories
 Answer: ProductID,ShopperID,OrderID
  
 4.Draw the E-R diagram for the problem.
-Answer: 
+Answer: https://github.com/meta-himanshu-somani/GET2021/blob/Softwarefundamental/assginment1/Softwarefundamental/assignment/DBMS%20overview/StoreFront%20ERD.png
 
 Assignment-2
 Q.Explain Normalization techniques (along with an example) as discussed during Session.

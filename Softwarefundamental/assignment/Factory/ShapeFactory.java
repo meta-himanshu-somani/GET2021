@@ -3,7 +3,6 @@ public class ShapeFactory {
 	public static Shape create(ShapeType shapetype,double... args){
 		Shape shape=null;
 		if(ShapeType.Circle.equals(shapetype)){
-			System.out.println("Circle "+ shapetype);
 			shape= new Circle(args[0],args[1],args[2]);
 		}else if(ShapeType.Rectangle.equals(shapetype)){
 			shape= new Rectangle(args[0],args[1],args[2],args[3]);

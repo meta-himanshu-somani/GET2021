@@ -8,6 +8,9 @@ public class CircularQueue implements Queue {
 	public String[] getQueue(){
 		return queue;
 	}
+	/**
+	*@return true if queue is full else false
+	*/
 	public boolean isFull(){
 		if(this.rear==MAX-1 && this.front==0){
 			return true;
@@ -17,7 +20,9 @@ public class CircularQueue implements Queue {
 			return false;
 		}
 	}
-	
+	/**
+	*@return true if queue is empty else false
+	*/
 	public boolean isEmpty(){
 		if(this.front==-1 && this.rear==-1){
 			return true;
@@ -25,7 +30,9 @@ public class CircularQueue implements Queue {
 			return false;
 		}
 	}
-	
+	/**
+	*@param value insert string value into queue
+	*/
 	public void enqueue(String value){
 		if(this.isFull()){
 			System.out.println("Queue is full...");
@@ -38,7 +45,7 @@ public class CircularQueue implements Queue {
 			this.queue[this.rear]=value;
 		}
 	}
-	
+	// delete element from queue present at front
 	public void dequeue(){
 		if(this.isEmpty()){
 			System.out.println("Queue is empty...");
@@ -52,7 +59,7 @@ public class CircularQueue implements Queue {
 			this.front=(this.front+1)%MAX;
 		}
 	}
-	
+	// Display the queue elements
 	public void display()  
 	{  
 	    int i=this.front;  

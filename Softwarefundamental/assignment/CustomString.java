@@ -22,7 +22,7 @@ public class CustomString {
 	 * 
 	 * @return reverse of passed string object and return new string object 
 	 */
-	public CustomString reverse(){
+	public CustomString reverseString(){
 		char[] tempstring;
 		tempstring=this.customstring.toCharArray();
 		for (int index=0;index<this.customstring.length()/2+1;index++){
@@ -71,7 +71,7 @@ public class CustomString {
 	 * @param str find largest word of string
 	 * @return largest word of string , if two word of equal length return last word 
 	 */
-	public String largestWord(String str){
+	public String largestWordInString(String str){
 		String[] wordlist=str.split(" ");
 		String largestword="";
 		for(String word: wordlist){

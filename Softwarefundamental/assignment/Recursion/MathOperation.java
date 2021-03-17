@@ -34,10 +34,10 @@ public class MathOperation {
 	 * @param Y integer number to find HCF/GCD with number1
 	 * @return HCF/GCD of number1 and number2
 	 */
-	public int Hcf(int number1,int number2){
+	public int hcfOfTwoNumbers(int number1,int number2){
 		if(number1==0){
 			 return number2;
 		}
-		return Hcf(number2%number1,number1);
+		return hcfOfTwoNumbers(number2%number1,number1);
 	}
 }

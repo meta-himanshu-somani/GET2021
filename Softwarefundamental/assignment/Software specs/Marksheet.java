@@ -47,7 +47,7 @@ public class Marksheet {
 	 * 
 	 * @return percentage student passed having >=40 grade in float type
 	 */
-	public float percentPassed(){
+	public float percentStudentPassed(){
 		int MINI_PASS=40;
 		int numOfStudentPassed=0;
 		for(int grade : this.gradeList){

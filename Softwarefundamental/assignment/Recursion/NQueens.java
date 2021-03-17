@@ -2,6 +2,12 @@
 public class NQueens {
 	int[][] queenplace;
 	int[] board;
+	/**
+	*
+	*@param board 2D array where queen is to be place
+	*@param current position of queen in board
+	*@return true if queen's position does not affect other queen else false
+	*/
 	private boolean noConflict(int[] board,int current){
 		this.board=board;
 		for(int index=0;index<current;index++){
@@ -14,6 +20,13 @@ public class NQueens {
 		}
 		return true;
 	}
+	/**
+	*
+	*@param board 2D array where queen is to be place
+	*@param current position of queen in board
+	*@param size of board 
+	*@return true if no conflicts occurs for current position of queen else false
+	*/
 	private boolean queens(int[] board,int current,int size){
 		this.board=board;
 		if(current==size){
@@ -31,13 +44,16 @@ public class NQueens {
 			return false;
 		}
 	}
-	
+	/**
+	*@param size it is size of board an number of queen to place in board
+	*@return true of queens can be insert in board else false
+	*/
 	public boolean calcQueens(int size){
 		int[] board=new int[size];
 		this.board=board;
 		return queens(board,0,size);
 	}
-	
+	// Display the coulmn index where queen is placed
 	public void display(){
 		if(calcQueens(this.board.length)){
 			int[][] queenPlace=new int[this.board.length][this.board.length];

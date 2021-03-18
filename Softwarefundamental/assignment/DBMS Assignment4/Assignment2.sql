@@ -15,12 +15,12 @@ delimiter //
 create procedure orderStatus(Start_date date , End_date date)
 Begin
 
-if  (Start_date<=End_date)  
+if  (Start_date<=End_date)  then
 
     select Order_status from orders where Order_date between Start_date and End_date;
 
 else
-    
     select Order_status from orders where Order_date between '2021-2-1' and End_date;
+end if ;
 End//
 delimiter ;

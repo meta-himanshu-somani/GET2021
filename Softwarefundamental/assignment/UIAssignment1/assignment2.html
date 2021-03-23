@@ -1,0 +1,260 @@
+<html>
+<head>
+<title>Metacube parking system</title>
+<style>
+body{margin:5px;}
+/* For Vehicle pricing container*/
+.flex-container {
+	display:flex;
+}
+.flex-container > div {
+  margin: 5px;
+  padding: 20px;
+}
+/* style button present in pricing container */
+.Pricing-Buttons{
+	padding: 4px 4px;
+	color:#0044cc;
+	background-color:white;
+	font-size:13px;
+	margin-top:3px;
+}
+.vehicalType{
+	border:solid;
+	border-color: #0044cc;
+	border-width:1px;
+	border-radius: 5px;
+}
+.vehicalPriceValue{
+	font-size:10px;
+	opacity: .5;
+}
+/* display circle in pricing  */
+.circle{
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius:50%;
+  border:solid;
+  border-width:1px;
+  border-color:#003366;
+  position:relative;
+  margin-bottom:2px;
+}
+/* Navigation bar at top of page */
+ul {
+	position: -webkit-sticky; /* Safari */
+  position: sticky;
+	top:0;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  overflow:hidden;
+}
+li {
+  float:left;
+}
+li a{
+  display:block;
+  text-align:center;
+  padding:8px;
+  color:white;
+  background-color:#4d4d4d;
+  text-decoration:none;
+}
+li a:hover{
+	background-color:#111;
+}
+.active{
+background-color: #4CAF50;
+}
+/* make item collapsible present in nav bar */
+.collapsible{
+	background-color:#777;
+	color:#444;
+	cursor: pointer;
+	
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.active,.collapsible:hover{
+	background-color:#ccc;
+}
+.Form{
+	padding:0 18px;
+	max-height:0;
+	overflow:hidden;
+	transition:max-height 0.2s ease-out;
+}
+* {
+  box-sizing: border-box;
+}
+input[type=text],[type=password],[type=digits]{
+	
+	height:20px;
+	padding:12px;
+	margin-left:20px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	resize:vertical;
+}
+button{
+	color:green;
+}
+button[type=submit]:hover{
+	background-color:#45a049;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 2px 2px;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+</style>
+</head>
+
+<body>
+<h2 align="center">Metacube Parking Portel</h2> 
+<!-- navigation bar at top-->
+<ul>
+<li><a  href="#AddEmp">Add Employee </a></li>
+<li><a  href="#AddVehicle">Add Vehicle </a></li>
+<li><a  href="#Feedback">Feedback</a></li>
+<li><a  href="#Pricing">Pricing </a></li>
+</ul>
+<!-- create form in collapsible style-->
+<div id="AddEmp" class="container" >
+<button type="button" class="collapsible"><h3>Add Employee</h3></button>
+<form class="Form">
+<div>
+<label for="uname"><b>Full Name:</b></label>
+<input id="EmpName" type="text">
+<br>
+<label for="gender"><b>Gender:</b></label>
+<input id="Gender" type="text">
+<br>
+<label for="email"><b>Email:</b></label>
+<input id="EmpEmail" type="text">
+<br>
+<label for="password"><b>Password:</b></label>
+<input id="Password" type="password">
+<br>
+<label for="cnfrmpassword"><b>Confirm Password:</b></label>
+<input id="ConfirmPassword" type="password">
+<br>
+<label for="number"><b>Contact Number:</b></label>
+<input id="Number" type="digits">
+<br>
+<button type="submit">Submit</button>
+</div>
+</form>
+</div>
+
+<div id="AddVehicle" class="container" >
+<button type="button" class="collapsible"><h3>Add Vehicle</h3></button>
+<form class="Form">
+<div class="vehicalForm" display="left">
+<label for="vehicalCompany"><b>Vehicle Make:</b></label>
+<input id="vehicalCompany" type="text">
+<br>
+<label for="model"><b>Vehicle Model:</b></label>
+<input id="model" type="text">
+<br>
+<label for="type"><b>Type:</b></label>
+<input id="Type" type="text">
+<br>
+<label for="vehicleNumber"><b>Vehicle Number</b></label>
+<input id="VehicleNumber" type="digits">
+<br>
+<label for="empID"><b>Employee ID:</b></label>
+<input id="EmpID" type="text">
+<br>
+<label for="identification"><b>Identification:</b></label>
+<input id="Identification" type="text">
+<br>
+<button type="submit">Submit</button>
+</div>
+</form>
+</div>
+
+<div id="Feedback" class="container">
+<button type="button" class="collapsible"><h3>Feedback</h3></button>
+<form class="Form">
+<label for="empName"><b>Name</b></label>
+<input id="Name" type="text">
+<br>
+<label for="empEmail"><b>Email</b></label>
+<input id="Name" type="text">
+<br>
+<label for="Subject"><b>Subject</b></label>
+<input id="Subject" type="text">
+<br>
+<label for="Message"><b>Message</b></label>
+<input id="Message" type="text">
+<button type="submit">Send Email-></button>
+</form>
+</div>
+<h3>Pricing</h3>
+<div id="Pricing" class="flex-container">
+<div class="vehicalType" align="center">
+<b>CYCLE</b><br>
+<div class="circle" >
+<p style="margin-bottom:2px;"><b>$100</b>
+</p>
+<footer style="opacity:.8; font-size:10px;">/month</footer>
+</div>
+<span class="vehicalPriceValue">$5 Daily</span ><br>
+<span class="vehicalPriceValue">$100 Monthly</span ><br>
+<span class="vehicalPriceValue">$500 Yearly</span ><br>
+<button class="Pricing-Buttons" type="submit" name="BtnFourwheeler">
+PURCHASE NOW</button>
+</div>
+<div class="vehicalType" align="center">
+<b>MOTORCYCLE</b><br>
+<div class="circle" >
+<p style="margin-bottom:2px; opacity:1;"><b>$200</b>
+</p>
+<footer style="opacity:1; font-size:10px;">/month</footer>
+</div>
+<span class="vehicalPriceValue">$10 Daily</span ><br>
+<span class="vehicalPriceValue">$200 Monthly</span ><br>
+<span class="vehicalPriceValue">$1000 Yearly</span ><br>
+<button class="Pricing-Buttons" type="submit" name="BtnFourwheeler">PURCHASE NOW</button>
+</div>
+<div class="vehicalType" align="center">
+<b>FOURWHEELER</b><br>
+<div class="circle" >
+<p style="margin-bottom:2px;"><b>$500</b>
+</p>
+<footer style="opacity:.8; font-size:10px;">/month</footer>
+</div>
+<span class="vehicalPriceValue" >$20 Daily</span><br>
+<span class="vehicalPriceValue">$500 Monthly</span><br>
+<span class="vehicalPriceValue">$2500 Yearly</span><br>
+<button class="Pricing-Buttons" type="submit" name="BtnFourwheeler">PURCHASE NOW</button>
+</div>
+</div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+</body>
+</html>

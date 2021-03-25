@@ -1,0 +1,19 @@
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+.container{
+    height: 895px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+h1,h2,h3{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.jumbotron{
+    height: auto;
+}

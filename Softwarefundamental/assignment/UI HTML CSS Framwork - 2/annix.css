@@ -1,0 +1,120 @@
+
+#wrapper{
+    display: inline-flex;
+    width: 100%;
+}
+.left{
+    width: 240px;
+}
+#sidebar{
+    border-right: groove;
+}
+.topbar-left{
+    height: 80px;
+}
+.text-center{
+    height: 80px;
+    padding-block: 30px;
+}
+.logo{
+    font-family:sans-serif ;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+.logo:hover{
+    color: #000;
+    text-decoration: none;
+}
+.logo b{
+    text-decoration: none;
+}
+
+.logo-div{
+    height: 80px;
+}
+.slimScrollDiv{
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 555px;
+}
+.sidebar-inner{
+    overflow: hidden;
+    width: auto;
+    height: 555px;
+}
+#sidebar-menu{
+    background-color: #ffffff;
+    width: 100%;
+}
+.menu-title {
+    padding: 12px 25px !important;
+    letter-spacing: .035em;
+    pointer-events: none;
+    cursor: default;
+    font-size: 13px;
+    color: #707070;
+}
+ul{
+    list-style-type:none ;
+    padding-left: 0;
+}
+.sidebar-inner li{
+    width: 237px;
+}
+.has-sub .nav-link{
+    color: black;
+}
+.nav-link{
+    padding: 0.8rem 1rem;
+}
+.has-sub .nav-link:hover{
+    color: rgb(96, 187, 240);
+}
+.slimScrollBar{
+    background: rgb(158, 165, 171);
+    width: 10px;
+    position: absolute;
+    top: 109px;
+    opacity: 0.4;
+    display: none;
+    border-radius: 7px;
+    z-index: 99;
+    right: 1px;
+    height: 446.413px;
+}
+.slimScrollRail{
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    display: none;
+    border-radius: 7px;
+    background: rgb(51, 51, 51);
+    opacity: 0.2;
+    z-index: 90;
+    right: 1px;
+}
+.content-page {
+    margin-left: 0px;
+    overflow: hidden;
+    min-height: 500px;
+    width: 100%;
+}
+.navbar{
+    height: 75px;
+}
+#SearchNavbar{
+    border-radius: 20px;
+    border-width: 0;
+    background-color: cornflowerblue;
+}
+.dropdown a{
+    color: rgb(9, 10, 10);
+    text-decoration: none;
+}
+.dropdown.dropdown-item a{
+    color: black;
+}
+
